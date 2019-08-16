@@ -4,11 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BiometricAttendanceRecording"
-      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="AttendancePage">
 
     <Grid Background="white">
-        
+        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Run Text="Attendance"/>
+        </TextBlock>
+        <TextBox x:Name="TxtBox_Search" materialDesign:HintAssist.Hint="Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,56,0,0" Width="250" FontSize="13" />
+        <Button Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Findstudent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280,62,0,0" Click="FindStudent">View</Button>
+        <DataGrid x:Name="dataGrid" Background="White" BorderBrush="#f5f5f5" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding LoadData}" Margin="20,127,33,0" VerticalAlignment="Top" ColumnWidth="*" AlternatingRowBackground="White" IsReadOnly="True" BorderThickness="0,0,0,1"/>
     </Grid>
 </Page>

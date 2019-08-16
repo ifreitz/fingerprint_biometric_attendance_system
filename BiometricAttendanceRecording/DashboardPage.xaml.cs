@@ -64,7 +64,7 @@ namespace BiometricAttendanceRecording
             adminDashboard.pageLabel.Text = "Administrator > Dashboard > Attendance";
             if (adminDashboard.attendancePage == null)
             {
-                adminDashboard.attendancePage = new AttendancePage();
+                adminDashboard.attendancePage = new AttendancePage(adminDashboard.database);
                 adminDashboard.PageContainer.Content = adminDashboard.attendancePage;
             } else
             {

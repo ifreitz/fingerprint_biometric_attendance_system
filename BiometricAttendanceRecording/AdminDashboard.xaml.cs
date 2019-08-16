@@ -123,7 +123,7 @@ namespace BiometricAttendanceRecording
 
             if (attendancePage == null)
             {
-                attendancePage = new AttendancePage();
+                attendancePage = new AttendancePage(database);
                 PageContainer.Content = attendancePage;
             } else
             {
