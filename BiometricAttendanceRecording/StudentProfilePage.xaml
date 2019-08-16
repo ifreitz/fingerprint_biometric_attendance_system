@@ -1,0 +1,51 @@
+﻿<Page x:Class="BiometricAttendanceRecording.StudentProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BiometricAttendanceRecording"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="StudentProfilePage">
+
+    <Grid Background="White">
+        <materialDesign:PackIcon Foreground="#3f51b5" Kind="AccountBadgeHorizontalOutline" Height="100" Width="100" Margin="30,31,0,0" />
+        <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="56" Margin="30,136,32,0" VerticalAlignment="Top" Padding="0">
+            <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" VerticalAlignment="Center">My Profile</TextBlock>
+        </Border>
+        <TextBox x:Name="Student_ID" IsReadOnly="True" materialDesign:HintAssist.Hint="Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="30,216,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="350" FontSize="15" />
+        <TextBox x:Name="Name" materialDesign:HintAssist.Hint="Lastname, Firstname MI" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="30,267,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="350" FontSize="15" />
+        <ComboBox x:Name="Sex" materialDesign:HintAssist.Hint="Sex" MinWidth="72" Margin="30,317,0,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="350" FontSize="13">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
+        <ComboBox x:Name="Course" materialDesign:HintAssist.Hint="Course" MinWidth="72" Margin="413,266,0,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="455" FontSize="13">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
+        <ComboBox x:Name="Year" materialDesign:HintAssist.Hint="Year" MinWidth="72" Margin="413,317,0,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="455" FontSize="13">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
+        <materialDesign:Badged x:Name="Badged_Update" Badge="" BadgeColorZoneMode="Dark" Margin="790,387,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button Click="UpdateInformation">Update</Button>
+        </materialDesign:Badged>
+    </Grid>
+</Page>

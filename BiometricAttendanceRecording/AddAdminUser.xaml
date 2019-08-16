@@ -1,0 +1,41 @@
+﻿<Window x:Class="BiometricAttendanceRecording.AddAdminUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BiometricAttendanceRecording"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Add New Admin Account" Height="600" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="White">
+        <materialDesign:Card Background="#3f51b5" materialDesign:ShadowAssist.ShadowDepth="Depth2" Padding="15">
+            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Foreground="White">Register New Account</TextBlock>
+        </materialDesign:Card>
+        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="23,72,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="378">Basic Information</TextBlock>
+        <TextBox materialDesign:HintAssist.Hint="First Name" x:Name="txtBox_fname" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="23,107,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380" />
+        <TextBox materialDesign:HintAssist.Hint="Middle Name" x:Name="txtBox_mname" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="23,159,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380" />
+        <TextBox materialDesign:HintAssist.Hint="Last Name" x:Name="txtBox_lname" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="23,211,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380"  />
+        <TextBox materialDesign:HintAssist.Hint="Username" x:Name="txtBox_username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="23,263,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380"  />
+        <TextBox materialDesign:HintAssist.Hint="Role" x:Name="txtBox_position" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="23,315,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380"  />
+        <Grid x:Name="loginCredentials" Margin="0,373,0,57">
+            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="378" Margin="22,0,0,0">Login Credentials</TextBlock>
+            <materialDesign:PackIcon Kind="Fingerprint" Height="100" Width="94" Margin="306,26,0,0" />
+            <RichTextBox x:Name="richTextBox" Foreground="Red" IsReadOnly="True" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="279" Margin="22,26,0,0">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="Please place any finger on the fingerprint device."/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Grid>
+        <Button x:Name="btn_submit" Style="{StaticResource MaterialDesignFlatButton}" ToolTip="Submit Information" Margin="0,0,19,14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="btn_submit_Click">Submit</Button>
+        <Button Style="{StaticResource MaterialDesignFlatButton}" ToolTip="Cancel Registration" Margin="0,0,96,14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="CancelRegistration">Cancel</Button>
+    </Grid>
+</Window>

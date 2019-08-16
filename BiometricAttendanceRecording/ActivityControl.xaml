@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="BiometricAttendanceRecording.ActivityControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BiometricAttendanceRecording"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Grid>
+        <materialDesign:Card Width="280" VerticalAlignment="Center" HorizontalAlignment="Center" Height="180" Margin="10">
+            <Grid>
+                <StackPanel Background="#3f51b5" Margin="0,0,0,53">
+                    <TextBlock x:Name="TxtBlock_Name" Foreground="white" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,10" Width="260">
+                        Activity
+                    </TextBlock>
+                    <TextBlock x:Name="TxtBlock_Date" Foreground="white" FontWeight="Light"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                        Date
+                    </TextBlock>
+                    <TextBlock x:Name="TxtBlock_Description" Foreground="white" FontSize="12" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,10" Width="260">
+                        <Run Text="Lorem Ipsum Solum, Lorem Ipsum Solum"/>
+                    </TextBlock>
+                </StackPanel>
+                <Grid VerticalAlignment="Bottom" Height="53">
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,6,55,7" Click="DeleteThisActivity">
+                        <materialDesign:PackIcon Kind="Delete" />
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,6,10,7" Click="NavigateViewActivity" Content="View"/>
+                </Grid>
+                <!-- long hand form for setting the message -->
+                <materialDesign:Snackbar x:Name="SnackBar_Confirm" IsActive="False" Padding="0">
+                    <materialDesign:SnackbarMessage Height="100" Width="278">
+                        <Grid Margin="0,-31" Width="278">
+                            <TextBlock Foreground="white" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" Width="258">
+                                Please confirm
+                            </TextBlock>
+                            <TextBlock Foreground="white" TextWrapping="Wrap" FontWeight="Light" Margin="10,32,10,24" >
+                                Upon deleting this activity, all the attendance record will be deleted also.
+                            </TextBlock>
+                            <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="190,66,0,0" Click="CancelDeletion">
+                                Cancel
+                            </Button>
+                            <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="102,66,88,0" Click="ConfirmDeletion">
+                                Confim
+                            </Button>
+                        </Grid>
+                    </materialDesign:SnackbarMessage>
+                </materialDesign:Snackbar>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

@@ -1,0 +1,60 @@
+﻿<Window x:Class="BiometricAttendanceRecording.StudentDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BiometricAttendanceRecording"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="StudentDashboard" Height="600" Width="1000" ResizeMode="CanMinimize" WindowState="Maximized" WindowStartupLocation="CenterScreen" Loaded="WindowsWasLoaded">
+    <Grid Background="White">
+        <materialDesign:Card Background="#3f51b5" Foreground="White" materialDesign:ShadowAssist.ShadowDepth="Depth2" materialDesign:ShadowAssist.ShadowEdges="Bottom" Padding="10" FontSize="20" Height="64" Panel.ZIndex="2">
+            <DockPanel>
+                <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges">
+                    <ListBox>
+                        <ListBoxItem Padding="0 0 0 0">
+                            <Button Cursor="Hand" ToolTip="Logout now?" Click="Logout_Click" Width="200">Logout</Button>
+                        </ListBoxItem>
+                    </ListBox>
+                </materialDesign:PopupBox>
+                <StackPanel Orientation="Horizontal" Height="40">
+                    <ToggleButton x:Name="btn_sideMenu" Style="{DynamicResource MaterialDesignHamburgerToggleButton}" Click="OpenSideMenu" />
+                    <TextBlock VerticalAlignment="Center" Margin="16,8,0,8">
+                        Biometric Fingerprint Attendance Recording Software
+                    </TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:Card>
+        <materialDesign:DrawerHost Background="White" x:Name="SideMenu" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0,64,0,-5">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <StackPanel Background="White" Width="250" Margin="0,0,0,0">
+                    <TextBlock Margin="20,20,0,10" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}">MENU</TextBlock>
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="Black" Height="50" FontSize="15" FontWeight="Light" Click="NavigateStudentProfilePage">
+                        <TextBlock TextAlignment="Left" Width="200">> My Profile</TextBlock>
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Visibility="Hidden" Foreground="Black" Height="50" FontSize="15" FontWeight="Light" Click="NavigateStudentAttendancePage">
+                        <TextBlock TextAlignment="Left" Width="200">> Attendance</TextBlock>
+                    </Button>
+                </StackPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <Grid>
+                <materialDesign:Card  materialDesign:ShadowAssist.ShadowDepth="Depth1" Padding="20 20 20 20" Panel.ZIndex="1">
+                    <Grid>
+                        <TextBlock x:Name="pageLabel" Style="{StaticResource MaterialDesignBody1TextBlock}">Student > Dashboard > Profile</TextBlock>
+                        <TextBlock x:Name="usernameLabel" Style="{StaticResource MaterialDesignBody2TextBlock}" HorizontalAlignment="Right">Howdy, Ian Freitz</TextBlock>
+                    </Grid>
+                </materialDesign:Card>
+                <Frame Margin="0,56,0,0" x:Name="PageContainer" NavigationUIVisibility="Hidden">
+
+                </Frame>
+            </Grid>
+        </materialDesign:DrawerHost>
+    </Grid>
+</Window>

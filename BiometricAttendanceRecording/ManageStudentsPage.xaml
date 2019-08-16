@@ -1,0 +1,56 @@
+﻿<Page x:Class="BiometricAttendanceRecording.ManageStudentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BiometricAttendanceRecording"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      d:DesignHeight="502" d:DesignWidth="900"
+      Title="ManageStudentsPage">
+
+    <Grid Background="White">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Panel.ZIndex="1">
+            <Expander Background="#3f51b5" Foreground="white" ExpandDirection="Right" Padding="10 0 0 0">
+                <Expander.Header>
+                    <TextBlock Text="Manage Available Courses" RenderTransformOrigin=".5,.5" FontSize="15">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical" Margin="8,24,16,24">
+                    <TextBlock Text="Courses" FontSize="14" />
+                    <Grid Height="60">
+                        <TextBox x:Name="txtBox_Course" materialDesign:HintAssist.Hint="Add New" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,6" Width="400" BorderBrush="White" FontSize="13" CaretBrush="White" SelectionBrush="Black" GotFocus="FocusCourseField" />
+                        <materialDesign:Badged x:Name="BadgedAdded" Badge="" BadgeColorZoneMode="Dark" Margin="0,18,23,10" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Button Click="AddNewCourse">Add</Button>
+                        </materialDesign:Badged>
+                    </Grid>
+                    <ListView x:Name="CourseList" Width="500" Foreground="White" Margin="0,10,0,0" BorderThickness="0,1,0,0" BorderBrush="White" OpacityMask="Black" Background="White">
+                    </ListView>
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="83,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="Student Master List"/></TextBlock>
+        <TextBox x:Name="TxtBox_Search" materialDesign:HintAssist.Hint="Name, Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="83,56,0,0" Width="250" FontSize="13" />
+        <Button Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Search student" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="338,62,0,0" Click="SearchStudent">Search</Button>
+        <Button Style="{StaticResource MaterialDesignRaisedButton}" ToolTip="Refresh list" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="417,62,0,0" Click="ViewAllStudents">View All</Button>
+        <Grid Width="124" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,56,28,0">
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="Start Registration" Margin="-28,0,2,0" Click="StartRegistration" />
+        </Grid>
+        <ComboBox x:Name="CBox_FilterCourse" materialDesign:HintAssist.Hint="Filter by course" MinWidth="72" Margin="83,102,0,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" FontSize="13" DropDownClosed="FilterDataByCourse">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
+        <TextBlock x:Name="txtBlock_NumberOfStudents" Style="{StaticResource MaterialDesignCaptionTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="83,160,0,0">Number of Students</TextBlock>
+        <DataGrid x:Name="dataGrid" Background="White" BorderBrush="#f5f5f5" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding LoadData}" Margin="83,181,28,0" VerticalAlignment="Top" ColumnWidth="*" AlternatingRowBackground="White" IsReadOnly="True" BorderThickness="0,0,0,1"/>
+        <Button Style="{StaticResource MaterialDesignFloatingActionAccentButton}" ToolTip="Export List" Margin="0,0,20,20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="50" Height="50" Click="ExportData" Panel.ZIndex="1">
+            <materialDesign:PackIcon Kind="FileExport" Height="24" Width="24" />
+        </Button>
+    </Grid>
+</Page>

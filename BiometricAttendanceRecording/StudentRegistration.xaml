@@ -1,0 +1,144 @@
+﻿<Window x:Class="BiometricAttendanceRecording.StudentRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BiometricAttendanceRecording"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="StudentRegistration" Height="600" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closing="StopRegistration">
+    <Grid Background="white">
+        <materialDesign:Card Background="#3f51b5" Foreground="White" materialDesign:ShadowAssist.ShadowDepth="Depth1" materialDesign:ShadowAssist.ShadowEdges="Bottom" FontSize="20" Height="65" Padding="10,0,0,0" Panel.ZIndex="1">
+            <Grid Height="50">
+                <materialDesign:PackIcon Kind="Fingerprint" Width="40" Height="40" VerticalAlignment="Center" />
+                <TextBlock Margin="45,13,0,13" VerticalAlignment="Center">Biometric Fingerprint Attendance Recording Software</TextBlock>
+            </Grid>
+        </materialDesign:Card>
+        <StackPanel Orientation="Horizontal" Margin="0,60,0,0" Background="White" HorizontalAlignment="Left" Width="994">
+            <Expander x:Name="Expander_FirstStep" ExpandDirection="Right" Margin="0,0,0,-1" Background="White">
+                <Expander.Header>
+                    <TextBlock Text="Step 1" RenderTransformOrigin=".5,.5" FontSize="20">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="8,24,16,24" HorizontalAlignment="Center">
+                    <Grid Width="400" Height="443">
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" FontSize="20"><Run Text="Student ID"/></TextBlock>
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" Margin="0,24,0,0" ><Run Text="Please input your student identification number"/></TextBlock>
+                        <TextBox x:Name="txtBox_StudentID" materialDesign:HintAssist.Hint="Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,6" Width="300" FontSize="20" />
+                        <Button Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Next" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="NavigateSecondStep">
+                            <materialDesign:PackIcon Kind="NavigateNext" Height="24" Width="24" />
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Expander>
+            <Border Background="{DynamicResource MaterialDesignDivider}" Width="1" VerticalAlignment="Stretch" SnapsToDevicePixels="True" />
+            <Expander x:Name="Expander_SecondStep" ExpandDirection="Right" IsEnabled="False" Background="White">
+                <Expander.Header>
+                    <TextBlock Text="Step 2" RenderTransformOrigin=".5,.5" FontSize="20">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="8,24,16,24">
+                    <Grid Width="400" Height="443">
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" FontSize="20"><Run Text="Basic Information"/></TextBlock>
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" Margin="0,24,0,0" ><Run Text="Please complete the required information below"/></TextBlock>
+                        <Button Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Next" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="NavigateThirdStep">
+                            <materialDesign:PackIcon Kind="NavigateNext" Height="24" Width="24" />
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" ToolTip="Back" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,55,10" Click="GoBackFirstStep">
+                            <materialDesign:PackIcon Kind="NavigateBefore" Height="24" Width="24" />
+                        </Button>
+                        <TextBox x:Name="TxtBox_StudentID2" materialDesign:HintAssist.Hint="Student ID" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,59,40,0" Width="350" FontSize="15" />
+                        <TextBox x:Name="TxtBox_Fullname" materialDesign:HintAssist.Hint="Lastname, Firstname, MI" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,123,40,0" Width="350" FontSize="15" />
+                        <ComboBox x:Name="CBox_Sex" materialDesign:HintAssist.Hint="Sex" MinWidth="72" Margin="10,187,40,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="350" FontSize="15" >
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <ComboBox x:Name="CBox_Course" materialDesign:HintAssist.Hint="Course" MinWidth="72" Margin="10,254,40,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="350" FontSize="15">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                        <ComboBox x:Name="CBox_Year" materialDesign:HintAssist.Hint="Year" MinWidth="72" Margin="10,321,40,0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="350" FontSize="15" Foreground="Black">
+                            <ComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </ComboBox.ItemsPanel>
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
+            </Expander>
+            <Border Background="{DynamicResource MaterialDesignDivider}" Width="1" VerticalAlignment="Stretch" SnapsToDevicePixels="True" />
+            <Expander x:Name="Expander_ThirdStep" ExpandDirection="Right" IsEnabled="False" Background="White">
+                <Expander.Header>
+                    <TextBlock Text="Step 3" RenderTransformOrigin=".5,.5" FontSize="20">
+                        <TextBlock.LayoutTransform>
+                            <RotateTransform Angle="90" />
+                        </TextBlock.LayoutTransform>
+                    </TextBlock>
+                </Expander.Header>
+                <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="8,24,16,24">
+                    <Grid Width="400" Height="443">
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" FontSize="20">
+                            <Run Text="Fingerprint"/>
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" Margin="0,24,0,0" TextWrapping="Wrap">
+                            <Run Text="This step is very important, please read the instructions carefully."/>
+                        </TextBlock>
+                        <materialDesign:PackIcon Kind="Fingerprint" Height="135" Width="124" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="138,100,138,0"/>
+                        <TextBlock x:Name="TxtBlock_FingerprintMessage" Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Margin="35,258,0,0" Width="332" Height="130" TextWrapping="Wrap">
+                            <Run Text="Place any of your finger on the device below."/>
+                        </TextBlock>
+                        <Button x:Name="Btn_ProceedLast" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" IsEnabled="False" ToolTip="Next" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="NavigateFinalStep">
+                            <materialDesign:PackIcon Kind="NavigateNext" Height="24" Width="24" />
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" ToolTip="Back" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,55,10" Click="GoBackSecondStep">
+                            <materialDesign:PackIcon Kind="NavigateBefore" Height="24" Width="24" />
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Expander>
+            <Border Background="{DynamicResource MaterialDesignDivider}" Width="1" VerticalAlignment="Stretch" SnapsToDevicePixels="True" />
+        </StackPanel>
+        <Grid x:Name="Grid_FinalStep" IsEnabled="False" Width="410" Margin="584,65,0,0">
+            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Center" FontSize="20" Margin="112,58,118,424" HorizontalAlignment="Center">
+                Student Registration
+            </TextBlock>
+            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" VerticalAlignment="Center" Margin="41,86,49,402" HorizontalAlignment="Center" >
+                Complete all requirements from Step 1 to Step 3
+            </TextBlock>
+            <materialDesign:PackIcon Kind="Fingerprint" Height="267" Width="248" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="82,157,80,82"/>
+        </Grid>
+        <materialDesign:DialogHost x:Name="DialogMessage" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">
+                        Registration Complete
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" TextWrapping="Wrap" Text="Congratulation, you completed the registration. Thank you for following the instructions carefully." Width="500" Margin="0,10,0,0"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Style="{StaticResource MaterialDesignFlatButton}" Margin="0 8 8 0" Click="CloseMessageDialog">Okay</Button>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+    </Grid>
+</Window>
