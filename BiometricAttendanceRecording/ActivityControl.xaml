@@ -17,13 +17,13 @@
         <materialDesign:Card Width="280" VerticalAlignment="Center" HorizontalAlignment="Center" Height="180" Margin="10">
             <Grid>
                 <StackPanel Background="#3f51b5" Margin="0,0,0,53">
-                    <TextBlock x:Name="TxtBlock_Name" Foreground="white" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,10" Width="260">
+                    <TextBlock x:Name="TxtBlock_Name" Foreground="white" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,10" Width="260" TextOptions.TextFormattingMode="Display">
                         Activity
                     </TextBlock>
-                    <TextBlock x:Name="TxtBlock_Date" Foreground="white" FontWeight="Light"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0">
+                    <TextBlock x:Name="TxtBlock_Date" Foreground="white" FontWeight="Light"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" TextOptions.TextFormattingMode="Display">
                         Date
                     </TextBlock>
-                    <TextBlock x:Name="TxtBlock_Description" Foreground="white" FontSize="12" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,10" Width="260">
+                    <TextBlock x:Name="TxtBlock_Description" Foreground="white" FontSize="12" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,10" Width="260" TextOptions.TextFormattingMode="Display">
                         <Run Text="Lorem Ipsum Solum, Lorem Ipsum Solum"/>
                     </TextBlock>
                 </StackPanel>
@@ -37,7 +37,7 @@
                 <materialDesign:Snackbar x:Name="SnackBar_Confirm" IsActive="False" Padding="0">
                     <materialDesign:SnackbarMessage Height="100" Width="278">
                         <Grid Margin="0,-31" Width="278">
-                            <TextBlock Foreground="white" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" Width="258">
+                            <TextBlock Foreground="white" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" Width="258" TextOptions.TextFormattingMode="Display">
                                 Please confirm
                             </TextBlock>
                             <TextBlock Foreground="white" TextWrapping="Wrap" FontWeight="Light" Margin="10,32,10,24" >

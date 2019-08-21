@@ -1,7 +1,9 @@
 ﻿using DPUruNet;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,6 +39,10 @@ namespace BiometricAttendanceRecording
         private int activityId;
 
         private string activityName;
+
+        static string appFolderPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+        string resourcePath = System.IO.Path.Combine(Directory.GetParent(appFolderPath).Parent.FullName, "Resources");
 
         public RecordAttendance(Database database)
         {
@@ -161,7 +167,7 @@ namespace BiometricAttendanceRecording
                 MessageBox.Show("Error while capturing the fingerprint.\nPlease try again later." + ex, "Error Fingerprint", MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Dispatcher.Invoke((Action)delegate
                 {
-                    fingerprintReader.CurrentReader.Reset();
+                    this.Close();
                 });
             }
         }
@@ -289,6 +295,23 @@ namespace BiometricAttendanceRecording
                             TxtBox_Name.Text = database.MyReader.GetString("fullname");
                             TxtBox_Course.Text = database.MyReader.GetString("course");
                             TxtBox_Year.Text = database.MyReader.GetInt32("year").ToString();
+
+                            string studId = database.MyReader.GetString("student_id");
+                            if (File.Exists(System.IO.Path.Combine(resourcePath, studentId + ".png")))
+                            {
+                                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, studId + ".png")));
+                            }
+                            else if (File.Exists(System.IO.Path.Combine(resourcePath, studId + ".jpg")))
+                            {
+                                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, studId + ".jpg")));
+                            }
+                            else if (File.Exists(System.IO.Path.Combine(resourcePath, studId + ".jpeg")))
+                            {
+                                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, studId + ".jpeg")));
+                            } else
+                            {
+                                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, "COE.jpg")));
+                            }
                         }
                     }
                     database.MyReader.Close();

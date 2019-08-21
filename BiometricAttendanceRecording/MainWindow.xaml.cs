@@ -117,9 +117,12 @@ namespace BiometricAttendanceRecording
             }
             catch (Exception)
             {
-                ErrorHeader1.Text = "Fingerprint device error";
-                ErrorContent1.Text = "Error while capturing the fingerprint.";
-                DialogMessage1.IsOpen = true;
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    ErrorHeader1.Text = "Fingerprint device error";
+                    ErrorContent1.Text = "Error while capturing the fingerprint.";
+                    DialogMessage1.IsOpen = true;
+                });
             }
         }
 
@@ -140,12 +143,8 @@ namespace BiometricAttendanceRecording
         private void resetDevice_Click(object sender, RoutedEventArgs e)
         {
             DialogMessage1.IsOpen = false;
-
-            fingerprintReader.CurrentReader.Reset();
-            if (!fingerprintReader.OpenReader())
-            {
-                DialogMessage1.IsOpen = true;
-            }
+            fingerprintReader.CurrentReader.Dispose();
+            InitializeReader();
         }
 
         private void closeAppication_Click(object sender, RoutedEventArgs e)

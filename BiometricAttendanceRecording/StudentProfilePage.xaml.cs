@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Reflection;
 
 namespace BiometricAttendanceRecording
 {
@@ -21,6 +24,10 @@ namespace BiometricAttendanceRecording
     public partial class StudentProfilePage : Page
     {
         private StudentDashboard studentDashboard;
+
+        static string appFolderPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+        string resourcePath = System.IO.Path.Combine(Directory.GetParent(appFolderPath).Parent.FullName, "Resources");
 
         public StudentProfilePage(StudentDashboard studentDashboard)
         {
@@ -91,6 +98,41 @@ namespace BiometricAttendanceRecording
             Sex.Text = studentDashboard.Sex;
             Course.Text = studentDashboard.Course;
             Year.Text = studentDashboard.Year;
+            
+            if (File.Exists(System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + ".png")))
+            {
+                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + ".png")));
+            } else if (File.Exists(System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + ".jpg")))
+            {
+                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + ".jpg")));
+            } else if (File.Exists(System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + ".jpeg")))
+            {
+                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + ".jpeg")));
+            }
+        }
+
+        private void BrowseImage(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select Picure";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                string imagePath = System.IO.Path.Combine(resourcePath, studentDashboard.StudentId + System.IO.Path.GetExtension(op.SafeFileName));
+
+                if (!Directory.Exists(resourcePath))
+                {
+                    Directory.CreateDirectory(resourcePath);
+                }
+
+                if (File.Exists(imagePath))
+                {
+                    File.Delete(imagePath);
+                }
+
+                File.Copy(op.FileName, imagePath);
+                Image_Profile.Source = new BitmapImage(new Uri(op.FileName));
+            }
         }
     }
 }

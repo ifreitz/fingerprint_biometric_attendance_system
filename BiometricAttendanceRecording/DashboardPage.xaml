@@ -26,8 +26,8 @@
                     </Grid.RowDefinitions>
                     <Image Source="Resources/COE.jpg" Margin="3,10,0,0" Stretch="Uniform" />
                     <StackPanel Height="80px" Grid.Row="1" Margin="10,20,10,10">
-                        <TextBlock FontWeight="Bold" Margin="0,0,0,5"><Run Text="Activities"/></TextBlock>
-                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="View the list of activities and attendance records."/></TextBlock>
+                        <TextBlock FontWeight="Bold" Margin="0,0,0,5" TextOptions.TextFormattingMode="Display"><Run Text="Activities"/></TextBlock>
+                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" TextOptions.TextFormattingMode="Display"><Run Text="View the list of activities and attendance records."/></TextBlock>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
@@ -40,8 +40,8 @@
                     </Grid.RowDefinitions>
                     <Image Source="Resources/COE.jpg" Margin="3,10,0,0" Stretch="Uniform" />
                     <StackPanel Height="80px" Grid.Row="1" Margin="10,20,10,10">
-                        <TextBlock FontWeight="Bold" Margin="0,0,0,5"><Run Text="Manage Students"/></TextBlock>
-                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="View student list and available courses. Add, Edit, or Delete Students."/></TextBlock>
+                        <TextBlock FontWeight="Bold" Margin="0,0,0,5" TextOptions.TextFormattingMode="Display"><Run Text="Manage Students"/></TextBlock>
+                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" TextOptions.TextFormattingMode="Display"><Run Text="View student list and available courses. Add, Edit, or Delete Students."/></TextBlock>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
@@ -54,8 +54,8 @@
                     </Grid.RowDefinitions>
                     <Image Source="Resources/COE.jpg" Stretch="Uniform" Margin="3,10,0,0" />
                     <StackPanel Height="80px" Grid.Row="1" Margin="10,20,10,10">
-                        <TextBlock FontWeight="Bold" Margin="0,0,0,5"><Run Text="Administrators"/></TextBlock>
-                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="View the list of administrators in this system."/></TextBlock>
+                        <TextBlock FontWeight="Bold" Margin="0,0,0,5" TextOptions.TextFormattingMode="Display"><Run Text="Administrators"/></TextBlock>
+                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" TextOptions.TextFormattingMode="Display"><Run Text="View the list of administrators in this system."/></TextBlock>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>
@@ -68,8 +68,8 @@
                     </Grid.RowDefinitions>
                     <Image Source="Resources/COE.jpg" Stretch="Uniform" Margin="3,10,0,0" />
                     <StackPanel Height="80px" Grid.Row="1" Margin="10,20,10,10">
-                        <TextBlock FontWeight="Bold" Margin="0,0,0,5"><Run Text="Attendance"/></TextBlock>
-                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="View individual student attendance."/></TextBlock>
+                        <TextBlock FontWeight="Bold" Margin="0,0,0,5" TextOptions.TextFormattingMode="Display"><Run Text="Attendance"/></TextBlock>
+                        <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" TextOptions.TextFormattingMode="Display"><Run Text="View individual student attendance."/></TextBlock>
                     </StackPanel>
                 </Grid>
             </materialDesign:Card>

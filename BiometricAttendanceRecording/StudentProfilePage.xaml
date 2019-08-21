@@ -17,7 +17,6 @@
       Title="StudentProfilePage">
 
     <Grid Background="White">
-        <materialDesign:PackIcon Foreground="#3f51b5" Kind="AccountBadgeHorizontalOutline" Height="100" Width="100" Margin="30,31,0,0" />
         <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource MaterialDesignDivider}" Height="56" Margin="30,136,32,0" VerticalAlignment="Top" Padding="0">
             <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" VerticalAlignment="Center">My Profile</TextBlock>
         </Border>
@@ -47,5 +46,7 @@
         <materialDesign:Badged x:Name="Badged_Update" Badge="" BadgeColorZoneMode="Dark" Margin="790,387,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Button Click="UpdateInformation">Update</Button>
         </materialDesign:Badged>
+        <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="135,83,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="BrowseImage">Upload image</Button>
+        <Image x:Name="Image_Profile" Source="Resources/COE.jpg" HorizontalAlignment="Left" Height="80" Margin="30,35,0,0" VerticalAlignment="Top" Width="80"/>
     </Grid>
 </Page>

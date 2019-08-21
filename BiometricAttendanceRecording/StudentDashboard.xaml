@@ -32,14 +32,14 @@
                 </StackPanel>
             </DockPanel>
         </materialDesign:Card>
-        <materialDesign:DrawerHost Background="White" x:Name="SideMenu" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0,64,0,-5">
+        <materialDesign:DrawerHost Background="White" x:Name="SideMenu" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0,64,0,-5" LeftDrawerCloseOnClickAway="False">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Background="White" Width="250" Margin="0,0,0,0">
                     <TextBlock Margin="20,20,0,10" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}">MENU</TextBlock>
                     <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="Black" Height="50" FontSize="15" FontWeight="Light" Click="NavigateStudentProfilePage">
                         <TextBlock TextAlignment="Left" Width="200">> My Profile</TextBlock>
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFlatButton}" Visibility="Hidden" Foreground="Black" Height="50" FontSize="15" FontWeight="Light" Click="NavigateStudentAttendancePage">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}" Foreground="Black" Height="50" FontSize="15" FontWeight="Light" Click="NavigateStudentAttendancePage">
                         <TextBlock TextAlignment="Left" Width="200">> Attendance</TextBlock>
                     </Button>
                 </StackPanel>
@@ -52,7 +52,6 @@
                     </Grid>
                 </materialDesign:Card>
                 <Frame Margin="0,56,0,0" x:Name="PageContainer" NavigationUIVisibility="Hidden">
-
                 </Frame>
             </Grid>
         </materialDesign:DrawerHost>

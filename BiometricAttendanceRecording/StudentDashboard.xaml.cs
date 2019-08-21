@@ -119,7 +119,7 @@ namespace BiometricAttendanceRecording
             SideMenu.IsLeftDrawerOpen = false;
             if (studentAttendancePage == null)
             {
-                studentAttendancePage = new StudentAttendancePage();
+                studentAttendancePage = new StudentAttendancePage(this);
                 PageContainer.Content = studentAttendancePage;
             }
             else

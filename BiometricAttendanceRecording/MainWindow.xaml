@@ -24,17 +24,17 @@
         </materialDesign:Card>
         <Image x:Name="image" Source="Resources/BSU.png" HorizontalAlignment="Left" Height="80" Margin="14,0,0,10" VerticalAlignment="Bottom" Width="80"/>
         <Image x:Name="image1" Source="Resources/COE.jpg" HorizontalAlignment="Left" Height="80" Margin="99,0,0,10" VerticalAlignment="Bottom" Width="80"/>
-        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="196,0,0,50" VerticalAlignment="Bottom" HorizontalAlignment="Left"> BUKIDNON STATE UNIVERSITY</TextBlock>
-        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="196,0,0,26" VerticalAlignment="Bottom" HorizontalAlignment="Left"> COLLEGE OF EDUCATION</TextBlock>
+        <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="196,0,0,50" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextOptions.TextFormattingMode="Display"> BUKIDNON STATE UNIVERSITY</TextBlock>
+        <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="196,0,0,26" VerticalAlignment="Bottom" HorizontalAlignment="Left" TextOptions.TextFormattingMode="Display"> COLLEGE OF EDUCATION</TextBlock>
         <materialDesign:Card Margin="397,189,397,128" VerticalAlignment="Center" Panel.ZIndex="2" Height="254" HorizontalAlignment="Center" Width="200">
             <Grid Height="125" Margin="0,119,0,10">
                 <materialDesign:PackIcon Kind="Fingerprint" Margin="36,-107,0,0" Height="135" Width="124"/>
                 <StackPanel Margin="10,50,6,10">
                     <Grid>
-                        <TextBlock FontWeight="Bold">Login</TextBlock>
+                        <TextBlock FontWeight="Bold" TextOptions.TextFormattingMode="Display">Login</TextBlock>
                         <ToggleButton x:Name="ToggleButton_isAdmin" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Login as Administrator" IsChecked="False" HorizontalAlignment="Right" Height="18" VerticalAlignment="Bottom" Click="loginAsAdminToggle_Click" />
                     </Grid>
-                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="Place your finger to the fingerprint scanner below to verify."/></TextBlock>
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" TextOptions.TextFormattingMode="Display"><Run Text="Place your finger to the fingerprint scanner below to verify."/></TextBlock>
                 </StackPanel>
             </Grid>
         </materialDesign:Card>

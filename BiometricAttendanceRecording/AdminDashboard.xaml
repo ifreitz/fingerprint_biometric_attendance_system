@@ -25,9 +25,6 @@
                         <ListBoxItem Padding="0 0 0 0">
                             <Button Cursor="Hand" Width="200" Click="ViewMyProfile">My Profile</Button>
                         </ListBoxItem>
-                        <ListBoxItem Padding="0 0 0 0">
-                            <Button Cursor="Hand" Width="200">About the System</Button>
-                        </ListBoxItem>
                     </ListBox>
                 </materialDesign:PopupBox>
                 <StackPanel Orientation="Horizontal" Height="40">
@@ -38,7 +35,7 @@
                 </StackPanel>
             </DockPanel>
         </materialDesign:Card>
-        <materialDesign:DrawerHost Background="White" x:Name="SideMenu" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0,64,0,-5">
+        <materialDesign:DrawerHost Background="White" x:Name="SideMenu" BorderBrush="{DynamicResource MaterialDesignDivider}" Margin="0,64,0,-5" LeftDrawerCloseOnClickAway="False">
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Background="White" Width="250" Margin="0,0,0,0">
                     <TextBlock Margin="20,20,0,10" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignSubheadingTextBlock}">MENU</TextBlock>

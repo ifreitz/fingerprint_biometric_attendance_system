@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace BiometricAttendanceRecording
 {
@@ -12,6 +16,10 @@ namespace BiometricAttendanceRecording
         Database database;
 
         AdminDashboard _adminDashboard;
+
+        static string appFolderPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+        string resourcePath = System.IO.Path.Combine(Directory.GetParent(appFolderPath).Parent.FullName, "Resources");
 
         public AdminProfile()
         {
@@ -38,6 +46,19 @@ namespace BiometricAttendanceRecording
             Username.Text = username;
             Position.Text = position;
             CreatedOn.Text = dateCreated;
+
+            if (File.Exists(System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + ".png")))
+            {
+                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + ".png")));
+            }
+            else if (File.Exists(System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + ".jpg")))
+            {
+                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + ".jpg")));
+            }
+            else if (File.Exists(System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + ".jpeg")))
+            {
+                Image_Profile.Source = new BitmapImage(new Uri(System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + ".jpeg")));
+            }
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)
@@ -67,6 +88,30 @@ namespace BiometricAttendanceRecording
             } else
             {
                 Badged_Update.Badge = "Failed";
+            }
+        }
+
+        private void BrowseImage(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Select Picure";
+            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|Portable Network Graphic (*.png)|*.png";
+            if (op.ShowDialog() == true)
+            {
+                string imagePath = System.IO.Path.Combine(resourcePath, "admin_profile_" + _adminDashboard.admin.AdminId + System.IO.Path.GetExtension(op.SafeFileName));
+
+                if (!Directory.Exists(resourcePath))
+                {
+                    Directory.CreateDirectory(resourcePath);
+                }
+
+                if (File.Exists(imagePath))
+                {
+                    File.Delete(imagePath);
+                }
+
+                File.Copy(op.FileName, imagePath);
+                Image_Profile.Source = new BitmapImage(new Uri(op.FileName));
             }
         }
     }

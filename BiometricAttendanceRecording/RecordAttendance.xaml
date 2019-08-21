@@ -31,7 +31,6 @@
             <TextBlock Foreground="White" Style="{StaticResource MaterialDesignHeadlineTextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="51,330,51,98">Place your finger on the device below</TextBlock>
             <TextBlock Foreground="White" Style="{StaticResource MaterialDesignHeadlineTextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="224,53,220,375">Hello,</TextBlock>
         </Grid>
-        <materialDesign:PackIcon Kind="FaceProfile" Foreground="#3f51b5" Width="140" Height="140" Margin="540,146,314,285" HorizontalAlignment="Left" VerticalAlignment="Top" />
         <TextBox IsReadOnly="True" x:Name="TxtBox_StudentID" materialDesign:HintAssist.Hint="Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="540,301,0,0" Width="200" FontSize="15" />
         <TextBox IsReadOnly="True" x:Name="TxtBox_Name" materialDesign:HintAssist.Hint="Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="540,351,0,0" Width="500" FontSize="15" />
         <TextBox IsReadOnly="True" x:Name="TxtBox_Course" materialDesign:HintAssist.Hint="Course" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="540,401,0,0" Width="500" FontSize="15" />
@@ -45,5 +44,6 @@
         <Image x:Name="image1" Source="Resources/COE.jpg" HorizontalAlignment="Right" Height="80" Margin="0,0,95,10" VerticalAlignment="Bottom" Width="80"/>
         <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="0,0,190,50" VerticalAlignment="Bottom" HorizontalAlignment="Right"><Run Text="BUKIDNON STATE UNIVERSITY"/></TextBlock>
         <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}" Margin="0,0,190,26" VerticalAlignment="Bottom" HorizontalAlignment="Right"><Run Text="COLLEGE OF EDUCATION"/></TextBlock>
+        <Image x:Name="Image_Profile" Source="Resources/COE.jpg" HorizontalAlignment="Left" Height="100" Margin="540,162,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
